@@ -21,3 +21,8 @@ use App\Http\Controllers\AuthorController;
 Route::get('/me', [AuthController::class, 'me']);
 Route::resource('books', 'BookController');
 Route::resource('authors', 'AuthorController');
+
+//sanctum
+Route::post('/register', [AuthController::class, 'register']);
+Route::post('/login', [AuthController::class, 'login']);
+Route::post('/me', [AuthController::class, 'me'])->middleware('auth:sanctum');  
